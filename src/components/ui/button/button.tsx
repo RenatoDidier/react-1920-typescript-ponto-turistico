@@ -3,6 +3,7 @@ import Spinner from "../spinner/spinner";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   text: string;
+  textLoading?: string;
   color?:
   | "primary"
   | "secondary"
@@ -17,6 +18,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export default function Button({
   text,
+  textLoading,
   isLoading = false,
   color = "primary",
   disabled,
@@ -30,7 +32,14 @@ export default function Button({
       {...rest}
     >
       {isLoading && <Spinner size="sm" />}
-      <span className="mx-2">{text}</span>
+      
+      <span className="mx-2">  
+        {
+          isLoading
+          ? textLoading ?? text
+          : text
+        }
+     </span>
     </button>
     </div>
   );
