@@ -54,6 +54,11 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.form-label {
+  font-weight: 700;
+  margin-left: 12px
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

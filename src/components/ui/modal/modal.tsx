@@ -9,6 +9,8 @@ type ModalProps = {
   closeOnBackdropClick?: boolean
   hasFooter?: boolean
   buttonConfirmLabel?: string
+  buttonConfirmColor?: "danger" | "primary"
+  buttonConfirmSize?: "btn-sm" | "btn-md"
   onClose: () => void
   onConfirm?: () => void
 }
@@ -34,6 +36,8 @@ export default function Modal({
   closeOnBackdropClick = true,
   hasFooter = false,
   buttonConfirmLabel = "Confirmar",
+  buttonConfirmColor = "primary",
+  buttonConfirmSize = "btn-md",
   onClose,
   onConfirm
 }: ModalProps) {
@@ -104,8 +108,8 @@ export default function Modal({
                   id="confirm-delete-button"
                   text={buttonConfirmLabel}
                   onClick={onConfirm}
-                  color="danger"
-                  size="btn-sm"
+                  color={buttonConfirmColor}
+                  size={buttonConfirmSize}
                 />
               </div>
             )}

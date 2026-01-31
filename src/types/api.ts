@@ -11,6 +11,16 @@ export interface TourismAdmin extends Tourism {
   dataCriacao: string;
 }
 
+export type TourismAdminForm = {
+  id: string | null;
+  dataCriacao: string | null;
+  name: string | null;
+  description: string | null;
+  reference: string | null;
+  city: string | null;
+  uf: string | null;
+};
+
 type PaginationMeta = {
   page: number;
   pageSize: number;
