@@ -1,15 +1,15 @@
 import { RouteObject } from "react-router-dom"
-import Listar from "@/app/app/turismo/listar"
-import Cadastrar from "@/app/app/turismo/admin/cadastrar"
+import List from "@/app/app/turismo/list"
+import Register from "@/app/app/turismo/admin/register"
 
 const turismoRoutes: RouteObject[] = [
   {
     path: "/app/turismo/listar",
-    element: <Listar />
+    element: <List />
   },
   {
     path: "/app/turismo/admin/cadastrar",
-    element: <Cadastrar />
+    element: <Register />
   }
 ]
 

@@ -1,12 +1,16 @@
 import { useEffect } from "react"
+import Button from "@/components/ui/button/button"
 
 type ModalProps = {
   isOpen: boolean
   title?: string
-  onClose: () => void
   children: React.ReactNode
   size?: "sm" | "md" | "lg" | "xl"
   closeOnBackdropClick?: boolean
+  hasFooter?: boolean
+  buttonConfirmLabel?: string
+  onClose: () => void
+  onConfirm?: () => void
 }
 
 function getSizeClass(size: ModalProps["size"]) {
@@ -25,10 +29,13 @@ function getSizeClass(size: ModalProps["size"]) {
 export default function Modal({
   isOpen,
   title,
-  onClose,
   children,
   size = "md",
-  closeOnBackdropClick = true
+  closeOnBackdropClick = true,
+  hasFooter = false,
+  buttonConfirmLabel = "Confirmar",
+  onClose,
+  onConfirm
 }: ModalProps) {
   useEffect(() => {
     if (!isOpen) return
@@ -90,6 +97,18 @@ export default function Modal({
             </div>
 
             <div className="modal-body">{children}</div>
+
+            {hasFooter && (
+              <div className="modal-footer">
+                <Button
+                  id="confirm-delete-button"
+                  text={buttonConfirmLabel}
+                  onClick={onConfirm}
+                  color="danger"
+                  size="btn-sm"
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

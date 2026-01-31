@@ -22,8 +22,8 @@ export default function Listar() {
     setSearchTurism(event.target.value)
   }
 
-  function openModalDetails(turismOption: Tourism): void {
-    setSelectedTourism(turismOption)
+  function openModalDetails(tourismOption: Tourism): void {
+    setSelectedTourism(tourismOption)
     setModalIsOpen(true)
   }
 
