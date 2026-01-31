@@ -1,4 +1,4 @@
-import { GetTourismResponse } from "@/types/api";
+import { GetTourismResponse, GetTourismAdminResponse } from "@/types/api";
 
 export const tourismMock: GetTourismResponse = {
   data: [
@@ -142,7 +142,89 @@ export const tourismMock: GetTourismResponse = {
       city: "Gramado",
       uf: "RS",
     }
+  ],
+  meta: {
+    page: 1,
+    pageSize: 2,
+    totalItems: 20,
+    totalPages: 1,
+  },
+};
 
+export const tourismAdminMock: GetTourismAdminResponse = {
+  data: [
+    {
+      id: "Cristo Redentor",
+      dataCriacao: "01/05/2024",
+      name: "Cristo Redentor",
+      description: "Uma das sete maravilhas do mundo moderno",
+      reference: "CRJ001",
+      city: "Rio de Janeiro",
+      uf: "RJ",
+    },
+    {
+      id: "Pelourinho",
+      dataCriacao: "01/05/2024",
+      name: "Pelourinho",
+      description: "Centro histórico de Salvador",
+      reference: "SSA002",
+      city: "Salvador",
+      uf: "BA",
+    },
+    {
+      id: "Cataratas do Iguaçu",
+      dataCriacao: "01/05/2024",
+      name: "Cataratas do Iguaçu",
+      description: "Conjunto de quedas d’água na fronteira do Brasil",
+      reference: "FOZ003",
+      city: "Foz do Iguaçu",
+      uf: "PR",
+    },
+    {
+      id: "Pão de Açúcar",
+      dataCriacao: "01/05/2024",
+      name: "Pão de Açúcar",
+      description: "Morro icônico com vista panorâmica da cidade",
+      reference: "RJ004",
+      city: "Rio de Janeiro",
+      uf: "RJ",
+    },
+    {
+      id: "Lençóis Maranhenses",
+      dataCriacao: "01/05/2024",
+      name: "Lençóis Maranhenses",
+      description: "Parque nacional com dunas e lagoas cristalinas",
+      reference: "MA005",
+      city: "Barreirinhas",
+      uf: "MA",
+    },
+    {
+      id: "Fernando de Noronha",
+      dataCriacao: "01/05/2024",
+      name: "Fernando de Noronha",
+      description: "Arquipélago famoso por praias e vida marinha",
+      reference: "PE006",
+      city: "Fernando de Noronha",
+      uf: "PE",
+    },
+    {
+      id: "Chapada Diamantina",
+      dataCriacao: "01/05/2024",
+      name: "Chapada Diamantina",
+      description: "Região de trilhas, cachoeiras e formações rochosas",
+      reference: "BA007",
+      city: "Lençóis",
+      uf: "BA",
+    },
+    {
+      id: "Parque Ibirapuera",
+      dataCriacao: "01/05/2024",
+      name: "Parque Ibirapuera",
+      description: "Principal parque urbano da cidade de São Paulo",
+      reference: "SP008",
+      city: "São Paulo",
+      uf: "SP",
+    },
   ],
   meta: {
     page: 1,

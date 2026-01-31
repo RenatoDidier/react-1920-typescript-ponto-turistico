@@ -1,9 +1,14 @@
-export type Tourism = {
+export interface Tourism {
   name: string;
   description: string;
   reference: string;
   city: string;
   uf: string;
+}
+
+export interface TourismAdmin extends Tourism {
+  id: string;
+  dataCriacao: string;
 }
 
 type PaginationMeta = {
@@ -20,3 +25,4 @@ type PaginatedResponse<T> = {
 
 
 export type GetTourismResponse = PaginatedResponse<Tourism>;
+export type GetTourismAdminResponse = PaginatedResponse<TourismAdmin>;

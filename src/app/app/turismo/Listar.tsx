@@ -1,4 +1,7 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { paths } from "@/config/paths"
+
 import reactLogo from "@/assets/react.svg"
 import Button from "@/components/ui/button/button"
 import Modal from "@/components/ui/modal/modal"
@@ -8,6 +11,7 @@ import { Tourism } from "@/types/api"
 import { tourismMock } from "@/mocks/tourism.mock"
 
 export default function Listar() {
+  const navigate = useNavigate()
   const [searchTurism, setSearchTurism] = useState<string>("")
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isSearching, setIsSearching] = useState<boolean>(false)
@@ -47,7 +51,11 @@ export default function Listar() {
           <a href="https://react.dev" target="_blank">
             <img src={reactLogo} className="logo react" alt="React logo" />
           </a>
-          <Button id="button-register" text="Cadastrar um ponto turístico" />
+          <Button
+            id="button-register"
+            text="Cadastrar um ponto turístico"
+            onClick={() => navigate(paths.app.cadastrarTurismo.getHref())}
+          />
         </div>
         <div className="d-flex gap-4">
           <input

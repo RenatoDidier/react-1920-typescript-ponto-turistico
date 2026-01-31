@@ -1,16 +1,16 @@
-import { RouteObject } from "react-router-dom";
-import Listar from "@/app/app/turismo/Listar";
-import Cadastrar from "@/app/app/turismo/admin/Cadastrar";
+import { RouteObject } from "react-router-dom"
+import Listar from "@/app/app/turismo/listar"
+import Cadastrar from "@/app/app/turismo/admin/cadastrar"
 
 const turismoRoutes: RouteObject[] = [
   {
     path: "/app/turismo/listar",
-    element: <Listar />,
+    element: <Listar />
   },
   {
     path: "/app/turismo/admin/cadastrar",
-    element: <Cadastrar />,
-  },
-];
+    element: <Cadastrar />
+  }
+]
 
-export default turismoRoutes;
+export default turismoRoutes
