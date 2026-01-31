@@ -1,14 +1,13 @@
 export const paths = {
   home: {
-    getHref: () => '/app',
+    getHref: () => "/app"
   },
   app: {
-    listarTurismo: {
-      getHref: () => '/app/turismo/listar',
+    tourismList: {
+      getHref: () => "/app/turismo/listar"
     },
-    cadastrarTurismo: {
-      getHref: () => '/app/turismo/admin/cadastrar',
-    },
-  },
-
-} as const;
+    tourismRegister: {
+      getHref: () => "/app/turismo/admin/cadastrar"
+    }
+  }
+} as const

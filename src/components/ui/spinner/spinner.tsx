@@ -1,5 +1,5 @@
 type SpinnerProps = {
-  message?: string;
+  message?: string
   color?:
     | "primary"
     | "secondary"
@@ -8,21 +8,17 @@ type SpinnerProps = {
     | "warning"
     | "info"
     | "light"
-    | "dark";
-  size?: "sm" | "md";
-};
+    | "dark"
+  size?: "sm" | "md"
+}
 
 export default function Spinner({
   message = "",
   color = "primary",
-  size = "md",
+  size = "md"
 }: SpinnerProps) {
   return (
-    <div
-      className="d-flex align-items-center gap-2"
-      role="status"
-      aria-live="polite"
-    >
+    <div className="d-flex align-items-center gap-2" role="status" aria-live="polite">
       <div
         className={`spinner-border text-${color} ${
           size === "sm" ? "spinner-border-sm" : ""
@@ -31,11 +27,7 @@ export default function Spinner({
         <span className="visually-hidden">{message}</span>
       </div>
 
-      {message && (
-        <span className={`text-${color} small`}>
-          {message}
-        </span>
-      )}
+      {message && <span className={`text-${color} small`}>{message}</span>}
     </div>
-  );
+  )
 }

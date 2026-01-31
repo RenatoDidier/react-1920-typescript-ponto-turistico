@@ -54,7 +54,7 @@ export default function Listar() {
           <Button
             id="button-register"
             text="Cadastrar um ponto turístico"
-            onClick={() => navigate(paths.app.cadastrarTurismo.getHref())}
+            onClick={() => navigate(paths.app.tourismRegister.getHref())}
           />
         </div>
         <div className="d-flex gap-4">
