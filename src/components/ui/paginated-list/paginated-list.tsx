@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useMemo, useState, useEffect } from "react"
 import Pagination from "@/components/ui/pagination/pagination"
 
 type PaginatedListProps<T> = {
@@ -7,6 +7,9 @@ type PaginatedListProps<T> = {
   totalItems: number
   renderItem: (item: T, index: number) => React.ReactNode
   getKey: (item: T) => string
+
+  onPageChange: (page: number) => void
+  resetPageRef?: React.MutableRefObject<(() => void) | null>
 }
 
 export default function PaginatedList<T>({
@@ -14,7 +17,9 @@ export default function PaginatedList<T>({
   itemsPerPage,
   totalItems,
   renderItem,
-  getKey
+  getKey,
+  onPageChange,
+  resetPageRef
 }: PaginatedListProps<T>) {
   const [currentPage, setCurrentPage] = useState(1)
 
@@ -23,9 +28,28 @@ export default function PaginatedList<T>({
   const paginatedItems = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage
     const end = start + itemsPerPage
-
     return items.slice(start, end)
   }, [items, currentPage, itemsPerPage])
+
+  function handlePageChange(page: number) {
+    setCurrentPage(page)
+    onPageChange(page)
+  }
+
+  function resetPage() {
+    setCurrentPage(1)
+    onPageChange(1)
+  }
+
+  useEffect(() => {
+    if (!resetPageRef) return
+
+    resetPageRef.current = resetPage
+
+    return () => {
+      resetPageRef.current = null
+    }
+  }, [resetPageRef])
 
   return (
     <>
@@ -44,7 +68,7 @@ export default function PaginatedList<T>({
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
-        onPageChange={setCurrentPage}
+        onPageChange={handlePageChange}
       />
     </>
   )
