@@ -7,9 +7,7 @@ type NotificationData = {
 
 let showNotification: ((data: NotificationData) => void) | null = null
 
-export function registerNotifier(
-  fn: (data: NotificationData) => void
-) {
+export function registerNotifier(fn: (data: NotificationData) => void) {
   showNotification = fn
 }
 

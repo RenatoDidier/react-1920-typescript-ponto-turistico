@@ -1,26 +1,22 @@
 import { api } from "@/api/axios"
-import {
-  TourismAdmin,
-  TourismAdminForm
-} from "@/types/api"
+import { TourismAdmin, TourismAdminForm } from "@/types/api"
 import {
   CreateTouristAttractionRequest,
   UpdateTouristAttractionRequest,
   PagedTouristAttractionRequest
-} from "@/types/request";
-import { GetTourismResponse } from "@/types/response";
-import { AdminTouristAttractionResponse } from "@/types/response";
-
+} from "@/types/request"
+import { GetTourismResponse } from "@/types/response"
+import { AdminTouristAttractionResponse } from "@/types/response"
 
 export const TouristAttractionAdminService = {
   async listAll(): Promise<TourismAdmin[]> {
     const response = await api.get<AdminTouristAttractionResponse>(
       "/api/TouristAttractions/Admin/List"
-    );
+    )
 
-    return response.data.items.map(item => ({
+    return response.data.items.map((item) => ({
       id: item.id,
-      title: item.title,              
+      title: item.title,
       description: item.description,
       city: item.city,
       uf: item.uf,
@@ -30,10 +26,7 @@ export const TouristAttractionAdminService = {
   },
 
   async listPaged(request: PagedTouristAttractionRequest): Promise<GetTourismResponse> {
-    const response = await api.post(
-      "/api/TouristAttractions/List",
-      request
-    )
+    const response = await api.post("/api/TouristAttractions/List", request)
 
     return response.data
   },
@@ -47,10 +40,7 @@ export const TouristAttractionAdminService = {
       description: data.description!
     }
 
-    await api.post(
-      "/api/TouristAttractions",
-      request
-    )
+    await api.post("/api/TouristAttractions", request)
   },
 
   async update(data: TourismAdminForm): Promise<void> {
@@ -63,16 +53,10 @@ export const TouristAttractionAdminService = {
       description: data.description!
     }
 
-    await api.put(
-      "/api/TouristAttractions",
-      request
-    )
+    await api.put("/api/TouristAttractions", request)
   },
 
   async delete(id: string): Promise<void> {
-    await api.delete(
-      `/api/TouristAttractions/Delete/${id}`
-    )
-  },
-
+    await api.delete(`/api/TouristAttractions/Delete/${id}`)
+  }
 }

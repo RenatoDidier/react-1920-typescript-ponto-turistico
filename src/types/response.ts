@@ -1,4 +1,4 @@
-import { Tourism, TourismAdmin } from "./api";
+import { Tourism, TourismAdmin } from "./api"
 
 export interface AdminTouristAttractionResponse {
   items: TourismAdmin[]
