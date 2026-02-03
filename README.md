@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+## 📍 Projeto – Front-end de Pontos Turísticos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação **front-end simples**, desenvolvida com **React 19.2** e **TypeScript**, responsável por **cadastrar, editar, listar e excluir pontos turísticos** associados ao usuário.
 
-Currently, two official plugins are available:
+A aplicação consome uma API back-end separada e depende dela para funcionar corretamente.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔗 Back-end necessário
 
-## React Compiler
+Para rodar o projeto localmente, é obrigatório utilizar o repositório de back-end abaixo:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+👉 https://github.com/RenatoDidier/dotnet-8-sql-server-ponto-turistico
 
-## Expanding the ESLint configuration
+Certifique-se de que o back-end esteja rodando antes de iniciar o front-end.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+## ▶️ Como rodar o projeto localmente
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked
+1. Clone este repositório:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname
-      }
-      // other options...
-    }
-  }
-])
-```
+   ```bash
+   git clone <url-do-repositorio>
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   ```
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x"
-import reactDom from "eslint-plugin-react-dom"
+2. Instale as dependências:
 
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname
-      }
-      // other options...
-    }
-  }
-])
-```
+   ```bash
+   npm install
+
+   ```
+
+3. Inicie a aplicação:
+
+   ```bash
+   npm run dev
+
+   ```
+
+4. Acesse através do localhost:
+   http://localhost:5173/
